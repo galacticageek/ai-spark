@@ -4,9 +4,9 @@ import { BOOTCAMP_MODULES } from './data/bootcampData';
 import { DOWNLOADABLE_ASSETS } from './data/downloadableFiles';
 import { LandingPage } from './components/LandingPage';
 import { StepByStepGuide } from './components/StepByStepGuide';
-import { N8nWorkflowVisualizer } from './components/n8nWorkflowVisualizer';
-import { ApiTestPlayground } from './components/ApiTestPlayground';
-import { PresentationDeckViewer } from './components/PresentationDeckViewer';
+const N8nWorkflowVisualizer = lazy(() => import('./components/n8nWorkflowVisualizer').then(module => ({ default: module.N8nWorkflowVisualizer })));
+const ApiTestPlayground = lazy(() => import('./components/ApiTestPlayground').then(module => ({ default: module.ApiTestPlayground })));
+const PresentationDeckViewer = lazy(() => import('./components/PresentationDeckViewer').then(module => ({ default: module.PresentationDeckViewer })));
 import { ResourceDownloadHub } from './components/ResourceDownloadHub';
 const QuizModal = lazy(() => import('./components/QuizModal').then(module => ({ default: module.QuizModal })));
 const CheatSheetModal = lazy(() => import('./components/CheatSheetModal').then(module => ({ default: module.CheatSheetModal })));
@@ -209,16 +209,26 @@ export default function App() {
               {/* TalentBridge Project #13 */}
               {activeTab === 'talentbridge' && (
                 <div className="space-y-8">
-                  <N8nWorkflowVisualizer onDownloadWorkflow={handleDownloadWorkflow} />
-                  <ApiTestPlayground />
+                  <Suspense fallback={<div className="h-40 bg-[#F4F4F1] animate-pulse border border-[#E5E5E0]" />}>
+                    <N8nWorkflowVisualizer onDownloadWorkflow={handleDownloadWorkflow} />
+                    <ApiTestPlayground />
+                  </Suspense>
                 </div>
               )}
 
               {/* Presentation Deck */}
-              {activeTab === 'presentation' && <PresentationDeckViewer />}
+              {activeTab === 'presentation' && (
+                <Suspense fallback={<div className="h-64 bg-[#F4F4F1] animate-pulse border border-[#E5E5E0]" />}>
+                  <PresentationDeckViewer />
+                </Suspense>
+              )}
 
               {/* API Playground */}
-              {activeTab === 'playground' && <ApiTestPlayground />}
+              {activeTab === 'playground' && (
+                <Suspense fallback={<div className="h-64 bg-[#F4F4F1] animate-pulse border border-[#E5E5E0]" />}>
+                  <ApiTestPlayground />
+                </Suspense>
+              )}
 
               {/* Download Hub */}
               {activeTab === 'hub' && <ResourceDownloadHub />}

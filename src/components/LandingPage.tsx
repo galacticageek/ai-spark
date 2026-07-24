@@ -76,8 +76,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
                 <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                   <button
                     onClick={() => onEnterWorkspace('day3')}
-                    className="w-full sm:w-auto px-6 py-3.5 bg-[#1A1A1A] hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3.5 bg-[#1A1A1A] hover:bg-black text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1A1A1A]"
                     id="landing-hero-start-btn"
+                    aria-label="Start Building workspace"
                   >
                     <span>Start Building</span>
                     <ArrowRight className="w-4 h-4 text-[#A3B18A]" />
@@ -85,8 +86,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
 
                   <button
                     onClick={() => onEnterWorkspace('talentbridge')}
-                    className="w-full sm:w-auto px-6 py-3.5 bg-transparent border border-[#E5E5E0] hover:border-[#A3B18A] text-[#1A1A1A] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-6 py-3.5 bg-transparent border border-[#E5E5E0] hover:border-[#A3B18A] text-[#1A1A1A] text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#A3B18A]"
                     id="landing-hero-talentbridge-btn"
+                    aria-label="View TalentBridge demo"
                   >
                     <Workflow className="w-4 h-4 text-[#A3B18A]" />
                     <span>View Demo</span>
@@ -151,8 +153,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
 
             <button
               onClick={() => onEnterWorkspace('talentbridge')}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A1A1A] hover:underline"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A1A1A] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1A1A1A]"
               id="landing-view-pipeline-link"
+              aria-label="Explore TalentBridge Pipeline"
            >
               <span>Explore Pipeline</span>
               <ChevronRight className="w-4 h-4 text-[#A3B18A]" />
@@ -201,8 +204,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
               </div>
               <button
                 onClick={() => onEnterWorkspace('playground')}
-                className="w-full sm:w-auto px-4 py-2  bg-[#1A1A1A] hover:bg-black text-white text-xs font-bold uppercase tracking-wider shrink-0 transition-colors"
+                className="w-full sm:w-auto px-4 py-2  bg-[#1A1A1A] hover:bg-black text-white text-xs font-bold uppercase tracking-wider shrink-0 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#1A1A1A]"
                 id="landing-try-simulator-btn"
+                aria-label="Test Webhook Simulator"
              >
                 Test Webhook
               </button>
@@ -391,8 +395,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
           <div className="pt-2">
             <button
               onClick={() => onEnterWorkspace('day3')}
-              className="px-8 py-3.5  bg-white hover:bg-gray-100 text-[#1A1A1A] text-xs font-bold uppercase tracking-wider transition-all shadow-md inline-flex items-center gap-2"
+              className="px-8 py-3.5  bg-white hover:bg-gray-100 text-[#1A1A1A] text-xs font-bold uppercase tracking-wider transition-all shadow-md inline-flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
               id="landing-bottom-cta-btn"
+              aria-label="Launch Workspace from bottom"
            >
               <span>Launch Workspace</span>
               <ArrowRight className="w-4 h-4 text-[#A3B18A]" />

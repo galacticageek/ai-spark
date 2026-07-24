@@ -11,7 +11,7 @@ const MatteDarkButton = React.forwardRef<
     <button
       ref={ref}
       className={cn(
-        "relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-zinc-100 transition-transform duration-200 active:scale-[0.98]",
+        "relative inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-zinc-100 transition-transform duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#8B8B8B]",
         className,
       )}
       style={{

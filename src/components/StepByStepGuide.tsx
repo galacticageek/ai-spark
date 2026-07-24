@@ -6,8 +6,9 @@ import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
 import { TeachableMachineSimulator } from './TeachableMachineSimulator';
 import { LovablePromptBuilder } from './LovablePromptBuilder';
-import { N8nWorkflowVisualizer } from './n8nWorkflowVisualizer';
-import { PresentationDeckViewer } from './PresentationDeckViewer';
+import { lazy, Suspense } from 'react';
+const N8nWorkflowVisualizer = lazy(() => import('./n8nWorkflowVisualizer').then(module => ({ default: module.N8nWorkflowVisualizer })));
+const PresentationDeckViewer = lazy(() => import('./PresentationDeckViewer').then(module => ({ default: module.PresentationDeckViewer })));
 import { explainStep } from '../lib/openrouter';
 
 interface StepGuideProps {
@@ -264,10 +265,18 @@ export const StepByStepGuide: React.FC<StepGuideProps> = ({
       </div>
 
       {/* Embedded Deep Interactive Tool for Day 5 */}
-      {module.id === 'day5' && <N8nWorkflowVisualizer onDownloadWorkflow={onDownloadWorkflow} />}
+      {module.id === 'day5' && (
+        <Suspense fallback={<div className="h-40 bg-[#F4F4F1] animate-pulse border border-[#E5E5E0]" />}>
+          <N8nWorkflowVisualizer onDownloadWorkflow={onDownloadWorkflow} />
+        </Suspense>
+      )}
 
       {/* Embedded Deep Interactive Tool for Day 6 */}
-      {module.id === 'day6' && <PresentationDeckViewer />}
+      {module.id === 'day6' && (
+        <Suspense fallback={<div className="h-64 bg-[#F4F4F1] animate-pulse border border-[#E5E5E0]" />}>
+          <PresentationDeckViewer />
+        </Suspense>
+      )}
 
       {/* End of Module Knowledge Check Quiz Banner */}
       {module.quiz && (

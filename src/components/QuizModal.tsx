@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BootcampModule } from '../types';
 import { CheckCircle2, XCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { quizFeedback } from '../lib/openrouter';
+import { toast } from 'sonner';
 import { SuccessRippleAnimation } from './ui/success-ripple';
 import {
   Dialog,
@@ -27,7 +28,10 @@ export const QuizModal: React.FC<QuizModalProps> = ({ module, onClose, onComplet
   if (!quiz) return null;
 
   const handleSubmit = async () => {
-    if (selectedIndex === null) return;
+    if (selectedIndex === null) {
+      toast.error('Please select an answer before submitting.');
+      return;
+    }
     setSubmitted(true);
     setAiFeedback('');
 
@@ -150,9 +154,8 @@ export const QuizModal: React.FC<QuizModalProps> = ({ module, onClose, onComplet
         <div className="flex justify-end gap-2 border-t border-[#E5E5E0] px-6 py-4 relative z-10 bg-white">
           {!submitted ? (
             <MatteDarkButton
-              disabled={selectedIndex === null}
               onClick={handleSubmit}
-              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider disabled:opacity-50 h-auto"
+              className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider h-auto"
               id="submit-quiz-btn"
             >
               Submit
