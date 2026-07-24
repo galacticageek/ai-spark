@@ -1,0 +1,6 @@
+{
+  "name": "AI-Spark",
+  "description": "Interactive Nordic Lagom step-by-step Gen AI Bootcamp & TalentBridge Automation learning hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

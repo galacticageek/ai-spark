@@ -4,8 +4,6 @@
 
 # AI-Spark
 
-[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/galacticageek/ai-spark?utm_source=oss&utm_medium=github&utm_campaign=galacticageek%2Fai-spark&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)](https://coderabbit.ai)
-
 This repository contains the source code for the AI-Spark Bootcamp application.
 
 ## Quick Start
