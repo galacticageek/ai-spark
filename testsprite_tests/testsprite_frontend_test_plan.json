@@ -1,0 +1,238 @@
+[
+  {
+    "id": "TC001",
+    "title": "Complete the quiz and see the results",
+    "description": "This verifies that a user can answer all quiz questions, submit successfully, and see the completion results state.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Answer all quiz questions"
+      },
+      {
+        "type": "action",
+        "description": "Submit the quiz"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz results are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a completion success state is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Open the quiz from the dashboard",
+    "description": "This verifies that a user can launch the quiz experience from the main dashboard and reach the quiz modal.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz modal is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz can be started from the dashboard"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Review the dashboard overview from top to bottom",
+    "description": "This verifies that a user can open the main dashboard and review the AI insight widgets and usage statistics by scrolling through the page.",
+    "category": "Dashboard Overview",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the main dashboard content is visible"
+      },
+      {
+        "type": "action",
+        "description": "Scroll through the dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify AI insight widgets and usage statistics are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "View the dashboard usage statistics section",
+    "description": "This verifies that a user can reach the usage statistics area and see key product metrics such as API usage and query counts.",
+    "category": "Dashboard Overview",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll through the dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify usage statistics are displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify API usage and query count information is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "See the completion confetti after submitting the quiz",
+    "description": "This verifies that submitting a completed quiz triggers the animated success experience alongside the results state.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Answer all quiz questions"
+      },
+      {
+        "type": "action",
+        "description": "Submit the quiz"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the completion celebration is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz results remain visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Block partial quiz submission",
+    "description": "This verifies that the quiz modal prevents submission when only some questions are answered and keeps the user in the quiz flow.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Answer some quiz questions"
+      },
+      {
+        "type": "action",
+        "description": "Submit the quiz"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz remains open"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC007",
+    "title": "Block empty quiz submission",
+    "description": "This verifies that the quiz modal prevents submission when no answers are selected and shows required-answer validation.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Submit the quiz without answering any questions"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a validation error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz remains open"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC008",
+    "title": "Reopen the quiz after closing it",
+    "description": "This verifies that a user can exit the quiz modal and open it again without losing the ability to continue the flow from the dashboard.",
+    "category": "Quiz System",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard"
+      },
+      {
+        "type": "action",
+        "description": "Close the quiz modal"
+      },
+      {
+        "type": "action",
+        "description": "Start the quiz from the dashboard again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the quiz modal is displayed again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard remains accessible behind the modal"
+      }
+    ],
+    "priority": "Low"
+  }
+]

@@ -1,0 +1,37 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - React
+  - Vite
+  - TailwindCSS
+  - Shadcn UI
+  - framer-motion
+  - gsap
+routes:
+  - path: /
+    file: src/App.tsx
+    auth_required: false
+    description: Main AI-Spark Dashboard page
+features:
+  - name: Dashboard Overview
+    description: View AI insights and dashboard statistics
+    files:
+      - src/components/DashboardLayout.tsx
+      - src/App.tsx
+    entry_route: /
+    user_interactions:
+      - Scroll to view dashboard widgets
+      - View stats like API usage and queries
+    auth_required: false
+  - name: Quiz System
+    description: User takes a quiz using the QuizModal
+    files:
+      - src/components/QuizModal.tsx
+    entry_route: /
+    user_interactions:
+      - Click "Start Quiz" or similar trigger
+      - Answer questions in the modal
+      - Submit quiz and see confetti/results
+    auth_required: false
+known_limitations: []
