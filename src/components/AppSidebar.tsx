@@ -48,8 +48,11 @@ export function AppSidebar({
           onClick={onGoToLandingPage}
           onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onGoToLandingPage()}
         >
-          <div className="w-6 h-6 bg-[#1A1A1A] flex items-center justify-center">
-            <span className="text-white text-[10px] font-bold">S</span>
+          <div className="relative flex items-center justify-center w-6 h-6 rounded-md bg-[#0A0A0A] overflow-hidden border border-[#222]">
+            <div className="absolute inset-0 bg-[#00ffcc] opacity-20 blur-md"></div>
+            <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5 text-[#00ffcc] relative z-10 drop-shadow-[0_0_5px_rgba(0,255,204,0.8)]">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
           <span className="font-bold text-sm text-[#1A1A1A] tracking-tight">AI-Spark</span>
         </div>
