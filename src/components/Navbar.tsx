@@ -156,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="w-[1px] h-4 bg-[#E5E5E0] mx-1.5 hidden sm:block" />
 
             <Tooltip>
-              <TooltipTrigger asChild>
+              <TooltipTrigger>
                 <Button
                   variant="ghost"
                   size="icon"
