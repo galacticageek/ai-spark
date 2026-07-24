@@ -63,8 +63,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             title="Return to Landing Page"
             aria-label="AI-Spark — Return to Landing Page"
           >
-            <div className="w-1.5 h-1.5 bg-[#A3B18A] group-hover:scale-150 transition-transform duration-300" />
-            <span className="text-lg font-medium tracking-tight text-[#1A1A1A]">AI-Spark</span>
+            <div className="relative flex items-center justify-center w-7 h-7 rounded-md bg-[#0A0A0A] overflow-hidden border border-[#222] group-hover:scale-105 transition-transform duration-300">
+              <div className="absolute inset-0 bg-[#00ffcc] opacity-20 blur-md group-hover:opacity-40 transition-opacity duration-300"></div>
+              <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 text-[#00ffcc] relative z-10 drop-shadow-[0_0_5px_rgba(0,255,204,0.8)] group-hover:drop-shadow-[0_0_8px_rgba(0,255,204,1)] transition-all duration-300">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <span className="text-lg font-bold tracking-tight text-[#1A1A1A]">AI-Spark</span>
           </button>
           
           <LearningStreak />

@@ -30,18 +30,13 @@ export const HeroHeader: React.FC<HeroHeaderProps> = ({ onEnterWorkspace, onOpen
       >
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#1A1A1A] text-white flex items-center justify-center font-bold text-xs rounded-md shadow-sm">
-              S
+            <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-[#0A0A0A] overflow-hidden border border-[#222]">
+              <div className="absolute inset-0 bg-[#00ffcc] opacity-20 blur-md"></div>
+              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[#00ffcc] relative z-10 drop-shadow-[0_0_5px_rgba(0,255,204,0.8)]">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-sm text-[#1A1A1A] tracking-tight">AI-Spark</span>
-                <span className="px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-widest bg-[#F4F4F1] border border-[#E5E5E0] text-[#A3B18A] rounded-sm">
-                  Enterprise
-                </span>
-              </div>
-              <p className="text-[10px] text-[#8C8C88] hidden sm:block">Gen AI Bootcamp & Automation Systems</p>
-            </div>
+            <span className="font-bold text-lg text-[#1A1A1A] tracking-tight">AI-Spark</span>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
