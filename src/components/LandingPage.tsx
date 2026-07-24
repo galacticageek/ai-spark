@@ -447,9 +447,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
         </div>
         
         <div className="mt-8 flex items-center justify-center gap-1 text-[#8C8C88] text-[10px] uppercase tracking-wider">
-          <span>fueled by code &</span>
+          <span>Fueled by code &amp;</span>
           <Coffee className="w-3.5 h-3.5 mx-0.5 text-[#C06C4C]" />
-          <span>by Oliver Oinam</span>
+          <span>coffee, crafted by Oliver Oinam</span>
         </div>
       </footer>
     </div>
