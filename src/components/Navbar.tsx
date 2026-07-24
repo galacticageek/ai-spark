@@ -58,9 +58,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Brand Logo - Minimal */}
           <button
             onClick={() => onGoToLandingPage ? onGoToLandingPage() : setActiveTab('day3')}
-            className="flex items-center gap-2 group focus:outline-none shrink-0"
+            className="flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A] focus-visible:ring-offset-2 shrink-0"
             id="brand-logo-btn"
             title="Return to Landing Page"
+            aria-label="AI-Spark — Return to Landing Page"
           >
             <div className="w-1.5 h-1.5 bg-[#A3B18A] group-hover:scale-150 transition-transform duration-300" />
             <span className="text-lg font-medium tracking-tight text-[#1A1A1A]">AI-Spark</span>
@@ -101,6 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setActiveTab('talentbridge')}
+              aria-label="Project — TalentBridge Dashboard"
               className={`text-xs gap-1.5 h-8 ${activeTab === 'talentbridge' ? 'text-[#1A1A1A] font-semibold bg-[#F9F9F7]' : 'text-muted-foreground hover:text-[#1A1A1A]'}`}
             >
               <LayoutDashboard className="w-3.5 h-3.5" />
@@ -111,6 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setActiveTab('presentation')}
+              aria-label="Deck — Presentation Viewer"
               className={`text-xs gap-1.5 h-8 ${activeTab === 'presentation' ? 'text-[#1A1A1A] font-semibold bg-[#F9F9F7]' : 'text-muted-foreground hover:text-[#1A1A1A]'}`}
             >
               <Presentation className="w-3.5 h-3.5" />
@@ -121,6 +124,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setActiveTab('playground')}
+              aria-label="Webhook — API Test Playground"
               className={`text-xs gap-1.5 h-8 ${activeTab === 'playground' ? 'text-[#1A1A1A] font-semibold bg-[#F9F9F7]' : 'text-muted-foreground hover:text-[#1A1A1A]'}`}
             >
               <PlaySquare className="w-3.5 h-3.5" />
@@ -131,6 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setActiveTab('hub')}
+              aria-label="Files — Resource Download Hub"
               className={`text-xs gap-1.5 h-8 ${activeTab === 'hub' ? 'text-[#1A1A1A] font-semibold bg-[#F9F9F7]' : 'text-muted-foreground hover:text-[#1A1A1A]'}`}
             >
               <Download className="w-3.5 h-3.5" />
@@ -141,6 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => setActiveTab('bookmarks')}
+              aria-label="Bookmarks — Saved Steps"
               className={`text-xs gap-1.5 h-8 ${activeTab === 'bookmarks' ? 'text-[#1A1A1A] font-semibold bg-[#F9F9F7]' : 'text-muted-foreground hover:text-[#1A1A1A]'}`}
             >
               <BookOpen className="w-3.5 h-3.5" />
@@ -150,11 +156,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="w-[1px] h-4 bg-[#E5E5E0] mx-1.5 hidden sm:block" />
 
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={openCheatSheet}
+                  aria-label="Docs — Open Cheat Sheet"
                   className="w-8 h-8 hover:bg-[#F9F9F7]"
                   id="nav-cheatsheet-btn"
                 >

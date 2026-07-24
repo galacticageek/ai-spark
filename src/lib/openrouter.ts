@@ -2,6 +2,10 @@
 import { OPENROUTER_API_URL, DEFAULT_AI_MODEL, APP_TITLE } from './constants';
 import { TestPayload } from '../types';
 
+// NOTE: This exposes VITE_OPENROUTER_API_KEY in the client bundle.
+// This is intentional for this bootcamp demo app using a free/rate-limited key.
+// In a production app, route AI requests through a server-side proxy or
+// serverless function so the key is never shipped to the browser.
 const getApiKey = () => {
   return import.meta.env.VITE_OPENROUTER_API_KEY || '';
 };

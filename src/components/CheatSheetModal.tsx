@@ -2,6 +2,8 @@ import React from 'react';
 import { BookOpen, Copy, Check, Download } from 'lucide-react';
 import { DOWNLOADABLE_ASSETS } from '../data/downloadableFiles';
 import { useState } from 'react';
+import { downloadFile } from '../lib/downloadFile';
+import { toast } from 'sonner';
 import {
   Dialog,
   DialogContent,
@@ -17,27 +19,24 @@ export const CheatSheetModal: React.FC<CheatSheetModalProps> = ({ onClose }) => 
   const [copied, setCopied] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'student' | 'instructor'>('student');
 
-  const studentAsset = DOWNLOADABLE_ASSETS.find((a) => a.id === 'student_cheat_sheet_md')!;
-  const instructorAsset = DOWNLOADABLE_ASSETS.find((a) => a.id === 'teaching_guide_md')!;
-
+  const studentAsset = DOWNLOADABLE_ASSETS.find((a) => a.id === 'student_cheat_sheet_md');
+  const instructorAsset = DOWNLOADABLE_ASSETS.find((a) => a.id === 'teaching_guide_md');
   const activeAsset = activeTab === 'student' ? studentAsset : instructorAsset;
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(activeAsset.fileContent);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopy = async () => {
+    if (!activeAsset) return;
+    try {
+      await navigator.clipboard.writeText(activeAsset.fileContent);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error('Could not copy to clipboard.');
+    }
   };
 
   const handleDownload = () => {
-    const blob = new Blob([activeAsset.fileContent], { type: activeAsset.mimeType });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = activeAsset.filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    if (!activeAsset) return;
+    downloadFile(activeAsset);
   };
 
   return (

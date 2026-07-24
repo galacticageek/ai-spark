@@ -106,7 +106,9 @@ export const DayNightSky = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const [value, setValue] = useState(0.25);
   const valueRef = useRef(value);
-  valueRef.current = value;
+  useEffect(() => {
+    valueRef.current = value;
+  });
 
   useEffect(() => {
     const container = containerRef.current;

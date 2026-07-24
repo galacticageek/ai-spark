@@ -233,10 +233,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Day 3 */}
             <div
+              role="button"
+              tabIndex={0}
+              aria-label="Launch Day 3: Teachable Machine & Custom GPTs"
               onClick={() => onEnterWorkspace('day3')}
-              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4"
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onEnterWorkspace('day3')}
+              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A]"
               id="card-landing-day3"
-           >
+            >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold font-mono uppercase tracking-widest px-2 py-0.5  bg-[#F4F4F1] border border-[#E5E5E0] text-[#A3B18A]">
@@ -257,10 +261,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
 
             {/* Day 4 */}
             <div
+              role="button"
+              tabIndex={0}
+              aria-label="Launch Day 4: Lovable Webforms & Webhooks"
               onClick={() => onEnterWorkspace('day4')}
-              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4"
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onEnterWorkspace('day4')}
+              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A]"
               id="card-landing-day4"
-           >
+            >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold font-mono uppercase tracking-widest px-2 py-0.5  bg-[#F4F4F1] border border-[#E5E5E0] text-[#A3B18A]">
@@ -281,10 +289,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
 
             {/* Day 5 */}
             <div
+              role="button"
+              tabIndex={0}
+              aria-label="Launch Day 5: n8n Automation & Pitch Engine"
               onClick={() => onEnterWorkspace('day5')}
-              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4"
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onEnterWorkspace('day5')}
+              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A]"
               id="card-landing-day5"
-           >
+            >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold font-mono uppercase tracking-widest px-2 py-0.5  bg-[#F4F4F1] border border-[#E5E5E0] text-[#A3B18A]">
@@ -305,10 +317,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterWorkspace, onOp
 
             {/* Day 6 */}
             <div
+              role="button"
+              tabIndex={0}
+              aria-label="Launch Day 6: Pitch Deck & ROI Rehearsal"
               onClick={() => onEnterWorkspace('day6')}
-              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4"
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onEnterWorkspace('day6')}
+              className="p-6  bg-[#FDFDFB] border border-[#E5E5E0] hover:border-[#A3B18A] transition-all cursor-pointer group flex flex-col justify-between space-y-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A]"
               id="card-landing-day6"
-           >
+            >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold font-mono uppercase tracking-widest px-2 py-0.5  bg-[#F4F4F1] border border-[#E5E5E0] text-[#A3B18A]">

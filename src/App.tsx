@@ -19,6 +19,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from './lib/db';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster, toast } from 'sonner';
+import { downloadFile } from './lib/downloadFile';
 
 export default function App() {
   const [viewMode, setViewMode] = useState<'landing' | 'workspace'>('landing');
@@ -44,20 +45,28 @@ export default function App() {
   // Save progress to Dexie
   const handleToggleStep = async (stepId: string) => {
     const isCompleted = !completedSteps[stepId];
-    await db.progress.put({ stepId, isCompleted });
-    if (isCompleted) {
-      toast.success('Step completed! Great job.');
+    try {
+      await db.progress.put({ stepId, isCompleted });
+      if (isCompleted) {
+        toast.success('Step completed! Great job.');
+      }
+    } catch {
+      toast.error('Could not save progress. Please try again.');
     }
   };
 
   // Toggle bookmark
   const handleToggleBookmark = async (stepId: string) => {
-    if (bookmarkedSteps[stepId]) {
-      await db.bookmarks.delete(stepId);
-      toast('Bookmark removed');
-    } else {
-      await db.bookmarks.put({ stepId, timestamp: Date.now() });
-      toast.success('Step saved to bookmarks');
+    try {
+      if (bookmarkedSteps[stepId]) {
+        await db.bookmarks.delete(stepId);
+        toast('Bookmark removed');
+      } else {
+        await db.bookmarks.put({ stepId, timestamp: Date.now() });
+        toast.success('Step saved to bookmarks');
+      }
+    } catch {
+      toast.error('Could not save bookmark. Please try again.');
     }
   };
 
@@ -70,15 +79,7 @@ export default function App() {
   const handleDownloadWorkflow = () => {
     const asset = DOWNLOADABLE_ASSETS.find((a) => a.id === 'n8n_workflow_json');
     if (!asset) return;
-    const blob = new Blob([asset.fileContent], { type: asset.mimeType });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = asset.filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    downloadFile(asset);
   };
 
   // Get current active module based on tab

@@ -32,8 +32,8 @@ export const LearningStreak: React.FC = () => {
       db.settings.bulkPut([
         { key: 'lastVisitDate', value: today },
         { key: 'streak', value: newStreak.toString() }
-      ]);
-      setStreak(newStreak);
+      ]).then(() => setStreak(newStreak))
+        .catch((err) => console.error('Failed to persist streak', err));
     } else {
       setStreak(parseInt(currentStreak || '1', 10));
     }

@@ -40,7 +40,14 @@ export function AppSidebar({
   return (
     <Sidebar className="bg-white border-r border-[#E5E5E0]">
       <SidebarHeader className="p-4 border-b border-[#E5E5E0] bg-white">
-        <div className="flex items-center gap-2 px-1 cursor-pointer" onClick={onGoToLandingPage}>
+        <div
+          role="button"
+          tabIndex={0}
+          aria-label="Go to landing page"
+          className="flex items-center gap-2 px-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3B18A]"
+          onClick={onGoToLandingPage}
+          onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onGoToLandingPage()}
+        >
           <div className="w-6 h-6 bg-[#1A1A1A] flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">S</span>
           </div>
@@ -65,6 +72,7 @@ export function AppSidebar({
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8C8C88]" />
             <input
               type="text"
+              aria-label="Search curriculum"
               placeholder="Search curriculum..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'sonner';
 import { WORKFLOW_NODES } from '../data/bootcampData';
 import { WorkflowNodeData } from '../types';
 import { Webhook, Sparkles, Mail, BellRing, Table, Clock, ArrowRight, Copy, Check, Download, Info, CheckCircle2 } from 'lucide-react';
@@ -30,10 +31,14 @@ export const N8nWorkflowVisualizer: React.FC<VisualizerProps> = ({ onDownloadWor
     }
   };
 
-  const handleCopyJson = () => {
-    navigator.clipboard.writeText(selectedNode.jsonSnippet);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyJson = async () => {
+    try {
+      await navigator.clipboard.writeText(selectedNode.jsonSnippet);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error('Could not copy to clipboard.');
+    }
   };
 
   return (

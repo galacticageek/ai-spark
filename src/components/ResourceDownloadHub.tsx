@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { DOWNLOADABLE_ASSETS } from '../data/downloadableFiles';
 import { DownloadableAsset } from '../types';
 import { Download, Copy, Check, FileText, Code, Sparkles, Eye, Search, BookOpen } from 'lucide-react';
+import { downloadFile } from '../lib/downloadFile';
+import { toast } from 'sonner';
 
 export const ResourceDownloadHub: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -10,12 +12,13 @@ export const ResourceDownloadHub: React.FC = () => {
   const [previewAsset, setPreviewAsset] = useState<DownloadableAsset | null>(null);
 
   const categories = [
-    { id: 'all', label: 'All Resources (10)' },
+    { id: 'all', label: `All Resources (${DOWNLOADABLE_ASSETS.length})` },
     { id: 'workflow', label: 'n8n Workflows' },
     { id: 'guide', label: 'Setup Guides' },
     { id: 'prompt', label: 'Lovable Prompts' },
     { id: 'presentation', label: 'Presentation & Script' },
-    { id: 'cheatsheet', label: 'Cheat Sheets' }
+    { id: 'cheatsheet', label: 'Cheat Sheets' },
+    { id: 'advanced', label: 'Advanced Nodes' }
   ];
 
   const filteredAssets = DOWNLOADABLE_ASSETS.filter((asset) => {
@@ -28,21 +31,17 @@ export const ResourceDownloadHub: React.FC = () => {
   });
 
   const handleDownload = (asset: DownloadableAsset) => {
-    const blob = new Blob([asset.fileContent], { type: asset.mimeType });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = asset.filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+    downloadFile(asset);
   };
 
-  const handleCopy = (asset: DownloadableAsset) => {
-    navigator.clipboard.writeText(asset.fileContent);
-    setCopiedId(asset.id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const handleCopy = async (asset: DownloadableAsset) => {
+    try {
+      await navigator.clipboard.writeText(asset.fileContent);
+      setCopiedId(asset.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch {
+      toast.error('Could not copy to clipboard.');
+    }
   };
 
   return (

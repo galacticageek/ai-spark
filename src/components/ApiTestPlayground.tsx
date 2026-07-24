@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from 'sonner';
 import { Send, CheckCircle2, RefreshCw, Mail, Table, Sparkles, Terminal, Copy, Check, Bell } from 'lucide-react';
 import { TestPayload } from '../types';
 import { generatePitch } from '../lib/openrouter';
@@ -9,7 +10,7 @@ export const ApiTestPlayground: React.FC = () => {
     company: 'TechFlow India',
     email: 'tomba.laisram@techflow.io',
     requirements: 'Need to train engineering managers on soft skills and empathetic communication before they interface with US clients next quarter.',
-    budgetRange: '$5,000 - $10,000 USD'
+    budgetRange: '$5,000 - $10,000'
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -28,16 +29,20 @@ export const ApiTestPlayground: React.FC = () => {
       });
     } catch (e: any) {
       console.error(e);
-      setGeneratedPitchText('Error generating pitch: ' + (e.message || String(e)));
+      setGeneratedPitchText('Something went wrong generating the pitch. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleCopyPayload = () => {
-    navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyPayload = async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(payload, null, 2));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      toast.error('Could not copy to clipboard.');
+    }
   };
 
   return (
